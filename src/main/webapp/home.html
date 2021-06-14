@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+    <h1>Home</h1>
+<!--    <form th:action="@{/logout}" method="get">-->
+<!--        <input type="submit" value="Sign Out"/>-->
+<!--    </form>-->
+    <form action="/logout" method="post">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+        <input type="submit" value="Sign Out"/>
+    </form>
+
+
+    <table>
+        <tr>
+            <th>NAME</th>
+            <th>PRICE</th>
+            <th>IN STOCK</th>
+        </tr>
+        <tr th:each="user : ${u}">
+            <td th:text="${u.username}">Onions</td>
+            <td th:text="${user.email}">2.41</td>
+            <td th:text="${prod.password}? #{true} : #{false}">yes</td>
+        </tr>
+    </table>
+</head>
+<body>
+
+</body>
+</html>
